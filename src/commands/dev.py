@@ -14,3 +14,8 @@ register_command(hotreloadcommandmodule, tags.AUTHOR_MASTER, pseudonyms=["hrcm"]
 async def sourcedump(cmd: CommandInfo):
 	pass
 register_command(sourcedump)
+
+
+async def github(cmd: CommandInfo):
+	await cmd.channel.send(f"My source code:\nhttps://github.com/IAmNotIsaac/joey-bot")
+register_command(github, pseudonyms=["sourceode", "source", "src", "gh"])

@@ -12,15 +12,17 @@ register_command(ilovejoey, tags.DEV_SECRET)
 
 
 async def send_c(cmd: CommandInfo):
-    print("send channel")
-    await cmd.args["channel"].send(cmd.args["msg"])
+    print(cmd.args)
+    print("send channel to", cmd.arg("channel"))
+    await cmd.arg("channel").send(cmd.arg("msg"))
 register_command(send_c, tags.AUTHOR_MASTER, override_name="send", channel=hints.CHANNEL_TEXT, msg=hints.STR_UNPARSED)
 
 
 async def send_dm(cmd: CommandInfo):
-    print("send dm")
-    await cmd.args["user"].send(cmd.args["msg"])
-register_command(send_dm, tags.AUTHOR_MASTER, override_name="send", user=hints.USER, msg=hints.STR_UNPARSED)
+    print(cmd.args)
+    print("send dm to", cmd.arg("user"))
+    await cmd.arg("user").send(cmd.arg("msg"))
+register_command(send_dm, tags.AUTHOR_MASTER, override_name="dm", user=hints.USER, msg=hints.STR_UNPARSED)
 
 
 async def kill(cmd: CommandInfo):
